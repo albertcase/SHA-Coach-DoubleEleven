@@ -7,7 +7,7 @@ if (!isset($_SESSION['openid'])) {
 //判断是否关注
 $info = file_get_contents("http://api.curio.im/v2/wx/users/".$_SESSION['openid']."?access_token=08ecb2077e158fd621a1f175e22442e8");
 $info = json_decode($info, true);
-$info['data']['subscribe'];
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -101,12 +101,17 @@ $info['data']['subscribe'];
 		if($(this).hasClass("disabled"))return false;
 		$("#wechat").show();
 	})
+	var subscribe = "<?php echo $info['data']['subscribe']?>";
+	$(".beceive_btn").click(function(){
+		if($(this).hasClass("disabled"))return false;
 
-	// $(".beceive_btn").click(function(){
-	// 	if($(this).hasClass("disabled"))return false;
-	// 	$(".content").hide();
-	// 	$("#qrcode").show();
-	// })
+		if(subscribe == 1){
+			addCard();
+		}else{
+			$(".content").hide();
+			$("#qrcode").show();
+		}
+	})
 
 	$("#wechat").click(function(){
 		$("#wechat").hide();
