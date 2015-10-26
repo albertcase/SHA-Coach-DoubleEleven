@@ -1,0 +1,213 @@
+
+
+body{
+	width: 100%;
+	position: relative;
+	height: 100%;
+	background: #ebebeb;
+	font-family: Arial;
+	overflow: hidden;
+}
+
+
+
+/* loading  */
+
+.loading{
+    width: 100%;
+    height:100%;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+}
+
+.car{
+    width:50%;
+    display: inline-block;
+    margin: 49% 0 0 0;
+}
+
+.spinner > div {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 100%;
+  display: inline-block;
+  margin-right: 8px;
+  -webkit-animation: bouncedelay 2s infinite ease-in-out;
+  animation: bouncedelay 2s infinite ease-in-out;
+  -webkit-animation-fill-mode: none;
+  animation-fill-mode: none;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.spinner .bounce3 {
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { background-color: #000; }
+    40% { background-color: #848484;}
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% { background-color: #000;} 
+    40% { background-color: #848484;}
+}
+.loading p{
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding: 6px 0 0 0;
+}
+
+
+
+
+
+
+#dreambox{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
+	text-align: center;
+	opacity: 0;
+}
+
+#dreambox .con{
+	width: 86%;
+	display: inline-block;
+}
+
+.logo{
+	width: 50%;
+	display: inline-block;
+	margin: 2em 0 0 0; 
+}
+
+.ticket{
+	display: inline-block;
+	margin: 3em 0 1em 0; 
+	position: relative;
+}
+
+.coupon{
+	width: 70%;
+	position: absolute;
+	left: 15%;
+	bottom: 15%;
+}
+
+.fresh_tips{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: -2em;
+	z-index: 2;
+	opacity: 0.3;
+	display: none;
+}
+
+.opacity,.bg{
+	opacity: 0;
+}
+
+#lotteryContainer{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 6;
+}
+
+.footer{
+	width: 82%;
+	display: inline-block;
+	margin: 1em 0 0 0; 
+	opacity: 0;
+}
+
+.footer a{	
+	width:49%;
+	display: inline-block;
+	opacity: 0.3;
+}
+
+.footer a.btnleft{
+	float: left;
+}
+
+.footer a.btnright{
+	float: right;
+}
+
+
+/*.footer a.disabled{
+	opacity: 0.6;
+}
+*/
+#wechat{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, 0.9);
+	z-index: 9;
+	text-align: right;
+	display: none;
+}
+
+#wechat img{
+	margin: 1em 2em 0 0;
+	display: inline-block;
+}
+
+#sharebeceive,#qrcode{
+	display: none;
+}
+
+#qrcode img{
+	width: 65%;
+	margin: 4em 0 0 0; 
+}
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+
+	#dreambox .con{
+		width: 80%;
+		display: inline-block;
+	}
+
+	.ticket{
+		display: inline-block;
+		margin: 2em 0 0 0; 
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
