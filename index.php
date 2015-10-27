@@ -68,7 +68,7 @@ $info = json_decode($info, true);
 
 			<footer class="footer">
 				<a href="javascript:;" class="beceive_btn btnleft disabled">
-					<img sourcesrc="imgs/btn-1.png" onclick="addCard()" src="" width="100%" />
+					<img sourcesrc="imgs/btn-1.png" src="" width="100%" />
 				</a>
 				<a href="javascript:;" class="share_btn btnright disabled">
 					<img sourcesrc="imgs/btn-2.png" src="" width="100%" />
@@ -106,7 +106,8 @@ $info = json_decode($info, true);
 		if($(this).hasClass("disabled"))return false;
 
 		if(subscribe == 1){
-			addCard();
+			var i = Math.floor(Math.random()*3)+1;
+			addCard(i);
 		}else{
 			$(".content").hide();
 			$("#qrcode").show();
@@ -156,18 +157,13 @@ $return = json_decode($return,true);
 $cardList = $return['data']['cardList'];
 ?>
 <script>
-function addCard() {
-	var cardList=[];
-	<?php for($i=0;$i<count($cardList);$i++) {
-	?>
-        cardList.push({
-            cardId: '<?php echo $cardList[$i]["cardId"]?>',
-            cardExt: '{"timestamp":"<?php echo $cardList[$i]["cardExt"]["timestamp"]?>","signature":"<?php echo $cardList[$i]["cardExt"]["signature"]?>"}'
-        })
-      <?php
-     }?>
+var cardListJSON = <?php echo json_encode($cardList)?>;
+function addCard(i) {
     wx.addCard({
-        cardList: cardList,
+        cardList: [{
+        	cardId: cardListJSON[i-1].cardId,
+            cardExt: '{"timestamp":"'+cardListJSON[i-1].cardExt.timestamp+'","signature":"'+cardListJSON[i-1].cardExt.signature+'"}'
+        }],
         success: function(res) {
             var cardList = res.cardList;
             alert(JSON.stringfiy(res));
