@@ -9,7 +9,7 @@ var getPixelRatio = function(context) {
    return (window.devicePixelRatio || 1) / backingStore;
 };
 
-var ratio;
+var ratio,num;
 
 
 
@@ -68,19 +68,19 @@ Lottery.prototype = {
 
                 var radgrad = this.maskCtx.createRadialGradient(x, y, 0, x, y, 300);
                 radgrad.addColorStop(0, 'rgba(0,0,0,1)');
-                radgrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                //radgrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
                 this.maskCtx.fillStyle = radgrad;
                 this.maskCtx.arc(x, y, 300, 0, Math.PI * 2, true);
                 this.maskCtx.fill();
 
                 $(".footer a").removeClass("disabled").animate({"opacity":1});
-
+                $("#lotteryContainer").attr("data-lottery", num);
                 this.drawPercentCallback.call(null, 100);
             }else{
 
                 var radgrad = this.maskCtx.createRadialGradient(x, y, 0, x, y, 30);
-                radgrad.addColorStop(0, 'rgba(0,0,0,0.7)');
-                radgrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                radgrad.addColorStop(0, 'rgba(0,0,0,1)');
+                //radgrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
                 this.maskCtx.fillStyle = radgrad;
                 this.maskCtx.arc(x, y, 30, 0, Math.PI * 2, true);
                 this.maskCtx.fill();
@@ -251,8 +251,75 @@ function GetRandomNum(Min,Max){
 
 
 function getRandomStr() {
-    var num = GetRandomNum(1,2); 
+    num = GetRandomNum(1,2); 
     var possiblecouponUrl = "../imgs/coupon-"+ num +".png";
-    $("#lotteryContainer").attr("data-lottery", num);
     return possiblecouponUrl;
 }
+
+
+
+
+
+
+
+wx.ready(function(){
+
+    window.wechat_setting.friend  = {
+        title: 'COACH双十一惊喜翻倍，刮开即刻有礼',
+        desc: '双十一动动手指就能赢取COACH电子优惠券，更多翻倍机会，等你来刮！',
+        link: 'coach-11.curio.im',
+        imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/b4ca8b6d-0531-40f0-aac3-a7a80a636b3a?imageView2/2/w/100/format/jpg/q/80'
+    };
+    wx.onMenuShareAppMessage({
+    title: 'COACH双十一惊喜翻倍，刮开即刻有礼', 
+    desc: '双十一动动手指就能赢取COACH电子优惠券，更多翻倍机会，等你来刮！', 
+    link: 'coach-11.curio.im',
+    imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/b4ca8b6d-0531-40f0-aac3-a7a80a636b3a?imageView2/2/w/100/format/jpg/q/80', 
+    type: '', 
+    dataUrl: '', 
+    success: function () { 
+        $("#wechat").hide();
+        if($("#lotteryContainer").attr("data-lottery") == "" || $("#lotteryContainer").attr("data-lottery") == null || $("#lotteryContainer").attr("data-lottery") == 3)return false;
+        $(".beceive_btn").removeClass("btnleft");
+        $(".coupon").hide();
+        $(".share_btn").hide();
+        $("#sharebeceive").show();
+        $("#lotteryContainer").attr("data-lottery", "3");
+
+    },
+    cancel: function () { 
+    }
+    });
+
+
+
+    window.wechat_setting.timeline = {
+            title: 'COACH双十一惊喜翻倍，刮开即刻有礼',
+            link: 'coach-11.curio.im',
+            imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/d8e4495e-c2d2-424c-ada1-6f7451bd1ce5?imageView2/2/w/100/format/jpg/q/80'
+    };
+    wx.onMenuShareTimeline({
+        title: 'COACH双十一惊喜翻倍，刮开即刻有礼', 
+        link: 'coach-11.curio.im',
+        imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/d8e4495e-c2d2-424c-ada1-6f7451bd1ce5?imageView2/2/w/100/format/jpg/q/80', 
+        success: function () { 
+            $("#wechat").hide();
+            if($("#lotteryContainer").attr("data-lottery") == "" || $("#lotteryContainer").attr("data-lottery") == null || $("#lotteryContainer").attr("data-lottery") == 3)return false;
+            $(".beceive_btn").removeClass("btnleft");
+            $(".coupon").hide();
+            $(".share_btn").hide();
+            $("#sharebeceive").show();
+            $("#lotteryContainer").attr("data-lottery", "3");
+        },
+        cancel: function () { 
+        }
+    });
+
+
+})
+
+
+
+
+
+

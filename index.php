@@ -26,6 +26,17 @@ $info = json_decode($info, true);
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?b71ddf403e9fa2cf059a9cf80cb5368c";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
 	<script type="text/javascript" src="js/jquery_pxloader_tween.js"></script>
 	<script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/fc123d81-e5c7-4404-98bb-93936d8469fc/wechat.js"></script>
 </head>
