@@ -106,8 +106,9 @@ $info = json_decode($info, true);
 		if($(this).hasClass("disabled"))return false;
 
 		if(subscribe == 1){
-			var i = Math.floor(Math.random()*3)+1;
-			addCard(i);
+			//var i = Math.floor(Math.random()*3)+1;
+			var lotteryResult = $("#lotteryContainer").attr("data-lottery");
+			addCard(lotteryResult);
 		}else{
 			$(".content").hide();
 			$("#qrcode").show();

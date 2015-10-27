@@ -252,6 +252,7 @@ function GetRandomNum(Min,Max){
 
 function getRandomStr() {
     var num = GetRandomNum(1,2); 
-    var possiblecouponUrl = "../imgs/coupon-"+ num +".png"
+    var possiblecouponUrl = "../imgs/coupon-"+ num +".png";
+    $("#lotteryContainer").attr("data-lottery", num);
     return possiblecouponUrl;
 }
