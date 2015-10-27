@@ -84,7 +84,7 @@ $info = json_decode($info, true);
 	
 </article>
 
-<img sourcesrc="imgs/bg.jpg" class="bg" src="" width="100%" />
+<img sourcesrc="imgs/bg.jpg" class="bg" src="" />
 <script type="text/javascript" src="js/loading.js"></script>
 <script type="text/javascript" src="js/lottery.js"></script>
 
