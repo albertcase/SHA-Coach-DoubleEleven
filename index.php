@@ -41,8 +41,6 @@ $info = json_decode($info, true);
 	<script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/fc123d81-e5c7-4404-98bb-93936d8469fc/wechat.js"></script>
 </head>
 <body>
-
-<article id="dreambox">
 <div class="loading">
 	<img src="imgs/loading.png" width="100%" class="car">
 
@@ -53,6 +51,8 @@ $info = json_decode($info, true);
 	</div>
 	<p>目前涌入的小伙伴过多<br>页面正在跳转中，请耐心等待。</p>
 </div>
+<article id="dreambox">
+
 
 <div id="wechat">
 	<img sourcesrc="imgs/share_tips.png" src="" width="50%" />
@@ -120,13 +120,21 @@ $info = json_decode($info, true);
 		if(subscribe == 1){
 			//var i = Math.floor(Math.random()*3)+1;
 			var lotteryResult = $("#lotteryContainer").attr("data-lottery");
+
+			if(lotteryResult == 3){
+				_hmt.push(['_trackEvent', 'btn', 'click', '我要领取-3']);
+			}else{
+				_hmt.push(['_trackEvent', 'btn', 'click', '我要领取-1-2']);
+			}
+			
 			addCard(lotteryResult);
+
 		}else{
 			$(".content").hide();
 			$("#qrcode").show();
 		}
 
-		_hmt.push(['_trackEvent', 'btn', 'click', '我要领取']);
+		
 	})
 
 	$("#wechat").click(function(){
