@@ -75,6 +75,7 @@ Lottery.prototype = {
 
                 $(".footer a").removeClass("disabled").animate({"opacity":1});
                 $("#lotteryContainer").attr("data-lottery", num);
+                _hmt.push(['_trackEvent', 'btn', 'click', '刮奖类型'+num]);
                 this.drawPercentCallback.call(null, 100);
             }else{
 
@@ -278,8 +279,12 @@ wx.ready(function(){
     type: '', 
     dataUrl: '', 
     success: function () { 
+        _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage']);
+
         $("#wechat").hide();
         if($("#lotteryContainer").attr("data-lottery") == "" || $("#lotteryContainer").attr("data-lottery") == null || $("#lotteryContainer").attr("data-lottery") == 3)return false;
+        
+        _hmt.push(['_trackEvent', 'btn', 'share', 'ShareAppMessage' + $("#lotteryContainer").attr("data-lottery")]);
         $(".beceive_btn").removeClass("btnleft");
         $(".coupon").hide();
         $(".share_btn").hide();
@@ -303,8 +308,13 @@ wx.ready(function(){
         link: 'coach-11.curio.im',
         imgUrl: 'http://7vzs67.com1.z0.glb.clouddn.com/d8e4495e-c2d2-424c-ada1-6f7451bd1ce5?imageView2/2/w/100/format/jpg/q/80', 
         success: function () { 
+            _hmt.push(['_trackEvent', 'btn', 'share', 'ShareTimeline']);
+
             $("#wechat").hide();
             if($("#lotteryContainer").attr("data-lottery") == "" || $("#lotteryContainer").attr("data-lottery") == null || $("#lotteryContainer").attr("data-lottery") == 3)return false;
+            
+            _hmt.push(['_trackEvent', 'btn', 'share', 'ShareTimeline' + $("#lotteryContainer").attr("data-lottery")]);
+            
             $(".beceive_btn").removeClass("btnleft");
             $(".coupon").hide();
             $(".share_btn").hide();

@@ -111,6 +111,7 @@ $info = json_decode($info, true);
 	$(".share_btn").click(function(){
 		if($(this).hasClass("disabled"))return false;
 		$("#wechat").show();
+		_hmt.push(['_trackEvent', 'btn', 'click', '我要翻倍']);
 	})
 	var subscribe = "<?php echo $info['data']['subscribe']?>";
 	$(".beceive_btn").click(function(){
@@ -124,6 +125,8 @@ $info = json_decode($info, true);
 			$(".content").hide();
 			$("#qrcode").show();
 		}
+
+		_hmt.push(['_trackEvent', 'btn', 'click', '我要领取']);
 	})
 
 	$("#wechat").click(function(){
