@@ -129,17 +129,17 @@ $access_token = '08ecb2077e158fd621a1f175e22442e8';
 $api_url = 'http://api.curio.im/v2/wx/card/js/add/json?access_token='. $access_token;
 // 参数数组
 $data[] = array(
-        'card_id' => 'pKCDxjnxlQzpd2YQLHNDfWuXC1w8',
+        'card_id' => 'pKCDxjmUZvqBsNvy-D3ymTZlkgJ8',
 		'code' => '',
 		'openid' => ''
 );
 $data[] = array(
-        'card_id' => 'pKCDxjsEKY-TWadO9JmZ2UDas6uo',
+        'card_id' => 'pKCDxjp1y4sa271dFPhdRySeTY0E',
 		'code' => '',
 		'openid' => ''
 );
 $data[] = array(
-        'card_id' => 'pKCDxjgwbyOA66F2FPTI2BWY83BQ',
+        'card_id' => 'pKCDxjp3X2kx9xqFVU-WFqXBlgKQ',
 		'code' => '',
 		'openid' => ''
 );
