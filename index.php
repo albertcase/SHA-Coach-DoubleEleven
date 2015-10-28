@@ -26,12 +26,21 @@ $info = json_decode($info, true);
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?b71ddf403e9fa2cf059a9cf80cb5368c";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
 	<script type="text/javascript" src="js/jquery_pxloader_tween.js"></script>
 	<script type="text/javascript" src="http://wechatjs.curio.im/api/v1/js/fc123d81-e5c7-4404-98bb-93936d8469fc/wechat.js"></script>
 </head>
 <body>
-
-<article id="dreambox">
 <div class="loading">
 	<img src="imgs/loading.png" width="100%" class="car">
 
@@ -42,6 +51,8 @@ $info = json_decode($info, true);
 	</div>
 	<p>目前涌入的小伙伴过多<br>页面正在跳转中，请耐心等待。</p>
 </div>
+<article id="dreambox">
+
 
 <div id="wechat">
 	<img sourcesrc="imgs/share_tips.png" src="" width="50%" />
@@ -84,7 +95,7 @@ $info = json_decode($info, true);
 	
 </article>
 
-<img sourcesrc="imgs/bg.jpg" class="bg" src="" width="100%" />
+<img sourcesrc="imgs/bg.jpg" class="bg" src="" />
 <script type="text/javascript" src="js/loading.js"></script>
 <script type="text/javascript" src="js/lottery.js"></script>
 
@@ -100,18 +111,30 @@ $info = json_decode($info, true);
 	$(".share_btn").click(function(){
 		if($(this).hasClass("disabled"))return false;
 		$("#wechat").show();
+		_hmt.push(['_trackEvent', 'btn', 'click', '我要翻倍']);
 	})
 	var subscribe = "<?php echo $info['data']['subscribe']?>";
 	$(".beceive_btn").click(function(){
 		if($(this).hasClass("disabled"))return false;
 
 		if(subscribe == 1){
-			var i = Math.floor(Math.random()*3)+1;
-			addCard(i);
+			//var i = Math.floor(Math.random()*3)+1;
+			var lotteryResult = $("#lotteryContainer").attr("data-lottery");
+
+			if(lotteryResult == 3){
+				_hmt.push(['_trackEvent', 'btn', 'click', '我要领取-3']);
+			}else{
+				_hmt.push(['_trackEvent', 'btn', 'click', '我要领取-1-2']);
+			}
+			
+			addCard(lotteryResult);
+
 		}else{
 			$(".content").hide();
 			$("#qrcode").show();
 		}
+
+		
 	})
 
 	$("#wechat").click(function(){

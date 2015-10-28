@@ -59,7 +59,7 @@ function loading(allAmg){
 	    });
 
 
-	    TweenMax.fromTo(document.querySelector('.loading'), 0.6, {
+	    TweenMax.fromTo(document.querySelector('.loading'), 0.9, {
 	        scale:1,
 	        autoAlpha:0,
 	        blurFilter:{blurX:50, blurY:10},

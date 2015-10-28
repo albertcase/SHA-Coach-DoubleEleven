@@ -184,6 +184,32 @@ html,body{
 	margin: 4em 0 0 0; 
 }
 
+.bg{
+	width: 100%;
+}
+
+
+
+
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+	.bg{
+		width: auto;
+		height: 100%;
+	}
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+	.bg{
+		width: auto;
+		height: 100%;
+	}
+}
+
+
+
 /* 4s */
 
 @media handheld and (min-height:400px),screen and (max-height:420px) {
