@@ -1,11 +1,10 @@
 <?php
-session_start();
-if (!isset($_SESSION['openid'])) {
+if (!isset($_COOKIE['openid'])) {
 	Header("Location:http://oauth.curio.im/v1/wx/web/auth/c267f514-04c8-416c-a692-14497ee002bb");
 	exit;
 }
 //判断是否关注
-$info = file_get_contents("http://api.curio.im/v2/wx/users/".$_SESSION['openid']."?access_token=08ecb2077e158fd621a1f175e22442e8");
+$info = file_get_contents("http://api.curio.im/v2/wx/users/".$_COOKIE['openid']."?access_token=08ecb2077e158fd621a1f175e22442e8");
 $info = json_decode($info, true);
 
 ?>
