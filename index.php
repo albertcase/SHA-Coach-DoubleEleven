@@ -188,19 +188,19 @@ function addCard(i) {
         }],
         success: function(res) {
             var cardList = res.cardList;
-            alert(JSON.stringfiy(res));
+            //alert(JSON.stringfiy(res));
         },
         fail: function(res) {
-            alert(JSON.stringfiy(res));
+            //alert(JSON.stringfiy(res));
         },
         complete: function(res) {
-            alert(JSON.stringfiy(res));
+            //alert(JSON.stringfiy(res));
         },
         cancel: function(res) {
-            alert(JSON.stringfiy(res));
+            //alert(JSON.stringfiy(res));
         },
         trigger: function(res) {
-            alert(JSON.stringfiy(res));
+            //alert(JSON.stringfiy(res));
         }
 	}); 
 
